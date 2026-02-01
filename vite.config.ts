@@ -6,7 +6,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [react(), glsl()],
-    base: '/minisentinal/',
+    base: '/Minisentinal/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
