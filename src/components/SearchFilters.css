@@ -1,0 +1,203 @@
+/* ============================================
+   MiniSentinel — Search Filters Styles
+   ============================================ */
+
+.search-filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Main Search Bar */
+.search-main {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+}
+
+.search-input {
+    padding-left: 44px;
+    padding-right: 36px;
+}
+
+.search-clear {
+    position: absolute;
+    right: var(--space-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.search-clear:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* Filter Toggle Button */
+.filter-toggle {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.filter-toggle.active {
+    border-color: var(--accent-cyan);
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.filter-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: var(--glow-cyan-soft);
+}
+
+/* Advanced Filters */
+.filters-advanced {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.filter-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+/* Filter Options (Pills) */
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.filter-option {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-sm);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-option:hover {
+    border-color: var(--border-secondary);
+    color: var(--text-primary);
+}
+
+.filter-option.active {
+    border-color: var(--accent-cyan);
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--accent-cyan);
+}
+
+/* Level-specific colors */
+.filter-option.level-error.active {
+    border-color: var(--accent-red);
+    background: rgba(255, 51, 102, 0.1);
+    color: var(--accent-red);
+}
+
+.filter-option.level-warn.active {
+    border-color: var(--accent-yellow);
+    background: rgba(255, 170, 0, 0.1);
+    color: var(--accent-yellow);
+}
+
+.filter-option.level-info.active {
+    border-color: var(--accent-cyan);
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--accent-cyan);
+}
+
+.filter-option.level-debug.active {
+    border-color: var(--text-tertiary);
+    background: rgba(85, 85, 85, 0.1);
+    color: var(--text-tertiary);
+}
+
+/* Select Dropdown */
+.filter-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.filter-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* Time Range */
+.time-range {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+/* Clear All Button */
+.clear-filters {
+    grid-column: 1 / -1;
+    justify-self: start;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-main {
+        flex-direction: column;
+    }
+
+    .filter-toggle {
+        align-self: flex-start;
+    }
+
+    .filters-advanced {
+        grid-template-columns: 1fr;
+    }
+}

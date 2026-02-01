@@ -1,0 +1,141 @@
+/* ============================================
+   MiniSentinel — Stat Card Styles
+   ============================================ */
+
+.stat-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-base), transform var(--transition-fast);
+}
+
+.stat-card:hover {
+    border-color: var(--border-accent);
+}
+
+/* Icon */
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+}
+
+.stat-card.success .stat-icon {
+    color: var(--accent-green);
+}
+
+.stat-card.warning .stat-icon {
+    color: var(--accent-yellow);
+}
+
+.stat-card.danger .stat-icon {
+    color: var(--accent-red);
+}
+
+/* Content */
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    min-width: 0;
+}
+
+.stat-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.stat-card.success .stat-value {
+    color: var(--accent-green);
+}
+
+.stat-card.warning .stat-value {
+    color: var(--accent-yellow);
+}
+
+.stat-card.danger .stat-value {
+    color: var(--accent-red);
+}
+
+/* Trend */
+.stat-trend {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.stat-trend.up {
+    color: var(--accent-green);
+}
+
+.stat-trend.down {
+    color: var(--accent-red);
+}
+
+/* Glow Effect */
+.stat-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+    opacity: 0.05;
+    pointer-events: none;
+    transform: translate(30%, -30%);
+}
+
+.stat-card.success .stat-glow {
+    background: radial-gradient(circle, var(--accent-green) 0%, transparent 70%);
+}
+
+.stat-card.warning .stat-glow {
+    background: radial-gradient(circle, var(--accent-yellow) 0%, transparent 70%);
+}
+
+.stat-card.danger .stat-glow {
+    background: radial-gradient(circle, var(--accent-red) 0%, transparent 70%);
+}
+
+.stat-card:hover .stat-glow {
+    opacity: 0.1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stat-card {
+        padding: var(--space-md);
+        gap: var(--space-md);
+    }
+
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}

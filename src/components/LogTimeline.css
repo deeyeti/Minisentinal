@@ -1,0 +1,159 @@
+/* ============================================
+   MiniSentinel — Log Timeline Styles
+   ============================================ */
+
+.log-timeline {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.log-timeline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+}
+
+.log-timeline-header h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.log-count {
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+    padding: 2px 8px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+}
+
+/* Log Entries Container */
+.log-entries {
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+/* Individual Log Entry */
+.log-entry {
+    display: grid;
+    grid-template-columns: 80px 80px 60px 120px 1fr;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-primary);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    align-items: center;
+}
+
+.log-entry:hover {
+    background: rgba(0, 255, 255, 0.03);
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+/* Timestamp */
+.log-time {
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Source Badge */
+.log-source {
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid var(--source-color);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* Log Level */
+.log-level {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.625rem;
+    letter-spacing: 0.05em;
+}
+
+.log-level.level-error {
+    color: var(--accent-red);
+}
+
+.log-level.level-warn {
+    color: var(--accent-yellow);
+}
+
+.log-level.level-info {
+    color: var(--accent-cyan);
+}
+
+.log-level.level-debug {
+    color: var(--text-tertiary);
+}
+
+/* IP Address */
+.log-ip {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Message */
+.log-message {
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Error Row Highlight */
+.log-entry.level-error {
+    background: rgba(255, 51, 102, 0.03);
+}
+
+.log-entry.level-error:hover {
+    background: rgba(255, 51, 102, 0.08);
+}
+
+/* Empty State */
+.log-empty {
+    padding: var(--space-2xl);
+    text-align: center;
+    color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .log-entry {
+        grid-template-columns: 70px 70px 50px 100px 1fr;
+        gap: var(--space-sm);
+        font-size: 0.6875rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .log-entry {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+        padding: var(--space-md);
+    }
+
+    .log-entry>span {
+        display: inline;
+    }
+
+    .log-message {
+        white-space: normal;
+        margin-top: var(--space-xs);
+    }
+}
